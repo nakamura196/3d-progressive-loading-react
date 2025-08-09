@@ -1,31 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCollection } from '../hooks/useCollection';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, useGLTF, PresentationControls, Environment } from '@react-three/drei';
 import './ModelsList.css';
-
-// 3Dサムネイルコンポーネント
-function ModelThumbnail({ url }) {
-  const { scene } = useGLTF(url);
-  
-  return (
-    <>
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 5]} intensity={0.5} />
-      <PresentationControls
-        global
-        zoom={0.8}
-        rotation={[0, -Math.PI / 4, 0]}
-        polar={[-Math.PI / 6, Math.PI / 6]}
-        azimuth={[-Math.PI / 4, Math.PI / 4]}
-      >
-        <primitive object={scene} scale={0.01} />
-      </PresentationControls>
-      <Environment preset="city" />
-    </>
-  );
-}
 
 // モデルカードコンポーネント
 function ModelCard({ item }) {
@@ -48,10 +24,12 @@ function ModelCard({ item }) {
     <div className="model-card">
       <div className="model-thumbnail">
         {thumbnailUrl && !previewError ? (
-          <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-            <ModelThumbnail url={thumbnailUrl} />
-            <OrbitControls enableZoom={false} />
-          </Canvas>
+          <img 
+            src={thumbnailUrl} 
+            alt={item.label?.en?.[0] || 'Model thumbnail'}
+            onError={() => setPreviewError(true)}
+            className="thumbnail-image"
+          />
         ) : (
           <div className="thumbnail-placeholder">
             <span>3D</span>
