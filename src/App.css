@@ -18,10 +18,14 @@
 
 /* For viewer page without footer */
 .viewer-page {
-  height: calc(100vh - 80px);
+  width: 100%;
+  height: 100%;
   overflow: hidden;
+  position: relative;
 }
 
 .viewer-page .canvas-container {
+  width: 100%;
   height: 100%;
+  position: relative;
 }

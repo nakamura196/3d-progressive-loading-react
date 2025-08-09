@@ -116,7 +116,7 @@ export function Footer() {
 
 export function Layout({ children, showFooter = true }) {
   return (
-    <div className="app-layout">
+    <div className={`app-layout ${!showFooter ? 'no-footer' : ''}`}>
       <Header />
       <main className="app-main">
         {children}

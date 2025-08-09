@@ -137,6 +137,15 @@ def create_iiif_manifest(model_name, model_dir, base_url, metadata=None, nav_pla
         "label": {"en": ["3D Model View"]},
         "height": 1000,
         "width": 1000,
+        "thumbnail": [
+            {
+                "id": f"{base_url}/thumbnails/{model_name}_thumbnail.png",
+                "type": "Image",
+                "format": "image/png",
+                "width": 512,
+                "height": 512
+            }
+        ],
         "items": [],
         "annotations": []
     }
@@ -244,30 +253,16 @@ def create_iiif_manifest(model_name, model_dir, base_url, metadata=None, nav_pla
     # Set rendering items
     manifest["rendering"] = rendering_items
     
-    # Set thumbnail (use smallest LOD)
-    if 'lod4' in lod_files:
-        thumbnail_lod = 'lod4'
-    elif 'lod3' in lod_files:
-        thumbnail_lod = 'lod3'
-    else:
-        thumbnail_lod = sorted_lods[0][0] if sorted_lods else None
-    
-    if thumbnail_lod:
-        thumbnail_url = f"{model_dir_relative}/{lod_files[thumbnail_lod]['filename']}"
-        manifest["thumbnail"] = [
-            {
-                "id": thumbnail_url,
-                "type": "Model",
-                "format": "model/gltf-binary",
-                "service": [
-                    {
-                        "@id": thumbnail_url,
-                        "@type": "ModelService",
-                        "profile": "http://iiif.io/api/3d/0/level0.json"
-                    }
-                ]
-            }
-        ]
+    # Set thumbnail (use PNG image)
+    manifest["thumbnail"] = [
+        {
+            "id": f"{base_url}/thumbnails/{model_name}_thumbnail.png",
+            "type": "Image",
+            "format": "image/png",
+            "width": 512,
+            "height": 512
+        }
+    ]
     
     return manifest
 
