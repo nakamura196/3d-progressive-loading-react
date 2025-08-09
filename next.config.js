@@ -1,18 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  transpilePackages: ['three'],
-  webpack: (config) => {
+  reactStrictMode: false, // React Three Fiberとの互換性のため一時的に無効化
+  transpilePackages: ['three', '@react-three/fiber', '@react-three/drei'],
+  webpack: (config, { isServer }) => {
+    // GLBファイルの処理
     config.module.rules.push({
       test: /\.(glb|gltf)$/,
-      use: {
-        loader: 'file-loader',
-        options: {
-          publicPath: '/_next/static/files/',
-          outputPath: 'static/files/',
-        },
-      },
+      type: 'asset/resource',
     });
+    
+    // React Three Fiberのalias設定
+    if (!isServer) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        '@react-three/fiber': '@react-three/fiber/dist/react-three-fiber.esm.js',
+      };
+    }
+    
     return config;
   },
   async rewrites() {

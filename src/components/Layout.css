@@ -17,7 +17,7 @@
 }
 
 .app-layout.no-footer .app-main {
-  overflow: hidden;
+  overflow: auto;
 }
 
 /* Header Styles */

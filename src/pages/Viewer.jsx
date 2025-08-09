@@ -1,18 +1,17 @@
 'use client';
 
-import React, { Suspense, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Environment, Grid, Center } from '@react-three/drei';
 import { Leva, useControls } from 'leva';
-import { ProgressiveModel } from '../components/ProgressiveModel';
 import { LoadingInfo } from '../components/LoadingInfo';
 import { useLoadingStore } from '../store/loadingStore';
 import { useManifest } from '../hooks/useManifest';
+import ClientOnly from '../components/ClientOnly';
 
 export function Viewer() {
   const [modelConfig, setModelConfig] = useState(null);
   const [configLoaded, setConfigLoaded] = useState(false);
+  const [Viewer3DCanvas, setViewer3DCanvas] = useState(null);
   const updateLoadingInfo = useLoadingStore((state) => state.updateLoadingInfo);
 
   const { autoRotate, rotationSpeed, wireframe } = useControls('Display', {
@@ -36,6 +35,13 @@ export function Viewer() {
   const modelId = searchParams.get('model');
   
   const { manifest, loading: manifestLoading, error: manifestError, getModelConfig, getSettings } = useManifest(manifestUrl);
+
+  // Load 3D Canvas component on client side only
+  useEffect(() => {
+    import('../components/Viewer3DCanvas').then(mod => {
+      setViewer3DCanvas(() => mod.Viewer3DCanvas);
+    });
+  }, []);
 
   useEffect(() => {
     if (configLoaded) return; // Already loaded config, don't run again
@@ -66,7 +72,7 @@ export function Viewer() {
         }
       }
     }
-  }, [manifest, manifestLoading, manifestError, modelId, getModelConfig, getSettings, configLoaded]);
+  }, [manifest, manifestLoading, manifestError, modelId, getModelConfig, getSettings, configLoaded, updateLoadingInfo]);
 
   return (
     <div className="viewer-page">
@@ -74,58 +80,21 @@ export function Viewer() {
       <Leva collapsed />
       
       <div className="canvas-container">
-        <Canvas
-          camera={{ position: [5, 3, 5], fov: 45 }}
-          shadows
-        >
-          <ambientLight intensity={0.6} />
-          <directionalLight
-            position={[5, 10, 5]}
-            intensity={0.8}
-            castShadow
-            shadow-mapSize={[2048, 2048]}
-          />
-          <pointLight position={[-5, 5, -5]} intensity={0.5} color="#4a90e2" />
-          
-          <Suspense fallback={null}>
-            {modelConfig && (
-              <ProgressiveModel
-                config={modelConfig}
-                enableProgressive={enableProgressive && modelConfig.progressive}
-                lodLevel={lodLevel}
-                wireframe={wireframe}
-              />
-            )}
-          </Suspense>
-          
-          <OrbitControls
-            enableDamping
-            dampingFactor={0.05}
-            minDistance={1}
-            maxDistance={20}
-            autoRotate={autoRotate}
-            autoRotateSpeed={rotationSpeed}
-          />
-          
-          <Grid
-            args={[20, 20]}
-            cellSize={1}
-            cellThickness={0.5}
-            cellColor="#6b7280"
-            sectionSize={5}
-            sectionThickness={1}
-            sectionColor="#9ca3af"
-            fadeDistance={30}
-            fadeStrength={1}
-            followCamera={false}
-            infiniteGrid
-          />
-          
-          <Environment preset="city" />
-        </Canvas>
+        <ClientOnly>
+          {Viewer3DCanvas ? (
+            <Viewer3DCanvas
+              modelConfig={modelConfig}
+              enableProgressive={enableProgressive}
+              lodLevel={lodLevel}
+              wireframe={wireframe}
+              autoRotate={autoRotate}
+              rotationSpeed={rotationSpeed}
+            />
+          ) : (
+            <div className="canvas-loading">Loading 3D viewer...</div>
+          )}
+        </ClientOnly>
       </div>
     </div>
   );
 }
-
-;
