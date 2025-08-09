@@ -1,6 +1,0 @@
-{
-  "/map/page": "app/map/page.js",
-  "/viewer/page": "app/viewer/page.js",
-  "/list/page": "app/list/page.js",
-  "/page": "app/page.js"
-}

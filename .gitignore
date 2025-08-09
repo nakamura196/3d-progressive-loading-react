@@ -6,6 +6,17 @@ dist/
 .env
 .env.local
 
+# Next.js
+/.next/
+/out/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Vercel
+.vercel
+
 # Large model files (use Git LFS or download separately)
 # Sponza large files
 public/data/models/sponza/sponza_s_lod0.glb
