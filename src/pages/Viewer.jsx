@@ -66,7 +66,7 @@ export function Viewer() {
   }, [manifest, manifestLoading, manifestError, modelId, getModelConfig, getSettings, configLoaded]);
 
   return (
-    <>
+    <div className="viewer-page">
       <LoadingInfo manifest={manifest} manifestUrl={manifestUrl} />
       <Leva collapsed />
       
@@ -121,7 +121,7 @@ export function Viewer() {
           <Environment preset="city" />
         </Canvas>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -1,11 +1,27 @@
-/* Canvas Container */
+/* Reset for specific pages */
+* {
+  box-sizing: border-box;
+}
+
+/* Canvas Container for 3D viewer */
 .canvas-container {
   width: 100%;
   height: calc(100vh - 80px);
   position: relative;
 }
 
+/* Ensure proper scrolling on list pages */
+.app-main {
+  flex: 1;
+  min-height: 0;
+}
+
 /* For viewer page without footer */
-.app-layout .app-main .canvas-container {
+.viewer-page {
   height: calc(100vh - 80px);
+  overflow: hidden;
+}
+
+.viewer-page .canvas-container {
+  height: 100%;
 }
