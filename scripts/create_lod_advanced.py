@@ -117,9 +117,19 @@ def create_lod_levels(input_source, output_dir="lod_models", lod_config=None, ma
     print(f"Original geometry: {original_faces:,} faces, {original_vertices:,} vertices")
     print(f"Bounds: {mesh.bounds[0]} to {mesh.bounds[1]}")
     
-    base_filename = Path(input_file).stem
+    # Extract base filename without extension
+    input_path = Path(input_file)
+    base_filename = input_path.stem
+    
+    # Remove _original, _base, or similar suffixes for cleaner naming
+    clean_name = base_filename
+    for suffix in ['_original', '_base', '_full', '_raw']:
+        if clean_name.endswith(suffix):
+            clean_name = clean_name[:-len(suffix)]
+            break
     
     print(f"\nCreating {len(lod_config)} LOD levels...")
+    print(f"Base name: {clean_name}")
     
     for lod_name, ratio in sorted(lod_config.items(), key=lambda x: -x[1]):
         print(f"\nProcessing {lod_name} (target: {ratio*100:.0f}%)...")
@@ -142,7 +152,8 @@ def create_lod_levels(input_source, output_dir="lod_models", lod_config=None, ma
                 print(f"  Skipping {lod_name}")
                 continue
         
-        output_file = os.path.join(output_dir, f"{base_filename}_{lod_name}.glb")
+        # Use consistent naming: modelname_lod0.glb, modelname_lod1.glb, etc.
+        output_file = os.path.join(output_dir, f"{clean_name}_{lod_name}.glb")
         
         try:
             simplified.export(output_file)

@@ -7,14 +7,14 @@ dist/
 .env.local
 
 # Large model files (use Git LFS or download separately)
-data/models/sponza/*.glb
-
-# Exclude only large GLB files from public directory
+# Sponza large files
 public/data/models/sponza/sponza_s_lod0.glb
 public/data/models/sponza/sponza_s_lod1.glb
 
-# Include smaller GLB files (lod2-lod4) and manifest files
-!public/data/models/sponza/sponza_s_lod2.glb
-!public/data/models/sponza/sponza_s_lod3.glb
-!public/data/models/sponza/sponza_s_lod4.glb
-!public/data/manifests/**/*.json
+# Scaniverse model 1 large files  
+public/data/models/scaniverse/scaniverse_lod0.glb
+public/data/models/scaniverse/scaniverse_original.glb
+
+# Scaniverse model 2 large files
+public/data/models/scaniverse2/scaniverse2_lod0.glb
+public/data/models/scaniverse2_original.glb
