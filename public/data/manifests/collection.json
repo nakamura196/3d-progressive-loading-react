@@ -3,7 +3,7 @@
     "http://iiif.io/api/presentation/3/context.json",
     "http://iiif.io/api/extension/navplace/context.json"
   ],
-  "id": "http://localhost:3000/data/manifests/collection.json",
+  "id": "/data/manifests/collection.json",
   "type": "Collection",
   "label": {
     "en": [
@@ -19,7 +19,7 @@
       },
       "value": {
         "en": [
-          "2025-08-09T21:49:13.317031"
+          "2025-08-09T22:12:06.187249"
         ]
       }
     },
@@ -67,7 +67,7 @@
   },
   "items": [
     {
-      "id": "http://localhost:3000/data/manifests/scaniverse2_iiif.json",
+      "id": "/data/manifests/scaniverse2_iiif.json",
       "type": "Manifest",
       "label": {
         "en": [
@@ -76,16 +76,11 @@
       },
       "thumbnail": [
         {
-          "id": "/data/models/scaniverse2/scaniverse2_lod4.glb",
-          "type": "Model",
-          "format": "model/gltf-binary",
-          "service": [
-            {
-              "@id": "/data/models/scaniverse2/scaniverse2_lod4.glb",
-              "@type": "ModelService",
-              "profile": "http://iiif.io/api/3d/0/level0.json"
-            }
-          ]
+          "id": "/thumbnails/scaniverse2_thumbnail.png",
+          "type": "Image",
+          "format": "image/png",
+          "width": 512,
+          "height": 512
         }
       ],
       "summary": {
@@ -145,7 +140,7 @@
       ]
     },
     {
-      "id": "http://localhost:3000/data/manifests/scaniverse_iiif.json",
+      "id": "/data/manifests/scaniverse_iiif.json",
       "type": "Manifest",
       "label": {
         "en": [
@@ -154,16 +149,11 @@
       },
       "thumbnail": [
         {
-          "id": "/data/models/scaniverse/scaniverse_lod4.glb",
-          "type": "Model",
-          "format": "model/gltf-binary",
-          "service": [
-            {
-              "@id": "/data/models/scaniverse/scaniverse_lod4.glb",
-              "@type": "ModelService",
-              "profile": "http://iiif.io/api/3d/0/level0.json"
-            }
-          ]
+          "id": "/thumbnails/scaniverse_thumbnail.png",
+          "type": "Image",
+          "format": "image/png",
+          "width": 512,
+          "height": 512
         }
       ],
       "summary": {
@@ -223,7 +213,7 @@
       ]
     },
     {
-      "id": "http://localhost:3000/data/manifests/sponza_iiif.json",
+      "id": "/data/manifests/sponza_iiif.json",
       "type": "Manifest",
       "label": {
         "en": [
@@ -232,24 +222,31 @@
       },
       "thumbnail": [
         {
-          "id": "/data/models/sponza/sponza_s_lod4.glb",
-          "type": "Model",
-          "format": "model/gltf-binary",
-          "service": [
-            {
-              "@id": "/data/models/sponza/sponza_s_lod4.glb",
-              "@type": "ModelService",
-              "profile": "http://iiif.io/api/3d/0/level0.json"
-            }
-          ]
+          "id": "/thumbnails/sponza_s_thumbnail.png",
+          "type": "Image",
+          "format": "image/png",
+          "width": 512,
+          "height": 512
         }
       ],
       "summary": {
         "en": [
-          "Crytek Sponza Atrium 3D model with 5 LOD levels for progressive loading"
+          "Classic Sponza Atrium model with detailed architecture"
         ]
       },
       "metadata": [
+        {
+          "label": {
+            "en": [
+              "LOD Levels"
+            ]
+          },
+          "value": {
+            "en": [
+              "5"
+            ]
+          }
+        },
         {
           "label": {
             "en": [
@@ -258,7 +255,7 @@
           },
           "value": {
             "en": [
-              "230MB"
+              "230.3 MB"
             ]
           }
         }
@@ -266,11 +263,11 @@
     }
   ],
   "navPlace": {
-    "id": "http://localhost:3000/data/manifests/collection/feature-collection",
+    "id": "/data/manifests/collection/feature-collection",
     "type": "FeatureCollection",
     "features": [
       {
-        "id": "http://localhost:3000/feature/1",
+        "id": "https://example.org/feature/1",
         "type": "Feature",
         "properties": {
           "label": {
@@ -278,7 +275,7 @@
               "Scaniverse 3D Scan 2"
             ]
           },
-          "manifest": "http://localhost:3000/data/manifests/scaniverse2_iiif.json"
+          "manifest": "/data/manifests/scaniverse2_iiif.json"
         },
         "geometry": {
           "type": "Point",
@@ -289,7 +286,7 @@
         }
       },
       {
-        "id": "http://localhost:3000/feature/1",
+        "id": "https://example.org/feature/1",
         "type": "Feature",
         "properties": {
           "label": {
@@ -297,13 +294,32 @@
               "Scaniverse 3D Scan 1"
             ]
           },
-          "manifest": "http://localhost:3000/data/manifests/scaniverse_iiif.json"
+          "manifest": "/data/manifests/scaniverse_iiif.json"
         },
         "geometry": {
           "type": "Point",
           "coordinates": [
             139.7673,
             35.6812
+          ]
+        }
+      },
+      {
+        "id": "https://example.org/feature/1",
+        "type": "Feature",
+        "properties": {
+          "label": {
+            "en": [
+              "Sponza Atrium"
+            ]
+          },
+          "manifest": "/data/manifests/sponza_iiif.json"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            14.4378,
+            45.3276
           ]
         }
       }

@@ -1,24 +1,7 @@
 {
-  "functions": {
-    "api/data/[...path].js": {
-      "maxDuration": 10
-    }
-  },
   "rewrites": [
     {
-      "source": "/data/manifests/:path*",
-      "destination": "/data/manifests/:path*"
-    },
-    {
-      "source": "/data/models/:path*", 
-      "destination": "/data/models/:path*"
-    },
-    {
-      "source": "/data/(.*)",
-      "destination": "/api/data/[...path]"
-    },
-    {
-      "source": "/(.*)",
+      "source": "/((?!api|_next|static|data|thumbnails|favicon.ico).*)",
       "destination": "/index.html"
     }
   ],
@@ -29,6 +12,10 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
         }
       ]
     },
@@ -55,6 +42,10 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=3600"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
         }
       ]
     }

@@ -8,7 +8,7 @@
       "quality": "http://iiif.io/api/presentation/3#quality"
     }
   ],
-  "id": "http://localhost:3000/manifest.json",
+  "id": "https://example.org/manifest.json",
   "type": "Manifest",
   "label": {
     "en": [
@@ -48,7 +48,7 @@
       },
       "value": {
         "en": [
-          "2025-08-09T21:48:35.722208"
+          "2025-08-09T22:11:34.180036"
         ]
       }
     },
@@ -109,7 +109,7 @@
   },
   "items": [
     {
-      "id": "http://localhost:3000/canvas/1",
+      "id": "https://example.org/canvas/1",
       "type": "Canvas",
       "label": {
         "en": [
@@ -118,16 +118,25 @@
       },
       "height": 1000,
       "width": 1000,
+      "thumbnail": [
+        {
+          "id": "/thumbnails/scaniverse2_thumbnail.png",
+          "type": "Image",
+          "format": "image/png",
+          "width": 512,
+          "height": 512
+        }
+      ],
       "items": [
         {
-          "id": "http://localhost:3000/canvas/1/page",
+          "id": "https://example.org/canvas/1/page",
           "type": "AnnotationPage",
           "items": [
             {
-              "id": "http://localhost:3000/canvas/1/annotation/1",
+              "id": "https://example.org/canvas/1/annotation/1",
               "type": "Annotation",
               "motivation": "painting",
-              "target": "http://localhost:3000/canvas/1",
+              "target": "https://example.org/canvas/1",
               "body": {
                 "type": "Choice",
                 "items": [
@@ -244,11 +253,11 @@
       ],
       "annotations": [],
       "navPlace": {
-        "id": "http://localhost:3000/feature-collection/1",
+        "id": "https://example.org/feature-collection/1",
         "type": "FeatureCollection",
         "features": [
           {
-            "id": "http://localhost:3000/feature/1",
+            "id": "https://example.org/feature/1",
             "type": "Feature",
             "properties": {
               "label": {
@@ -293,16 +302,11 @@
   ],
   "thumbnail": [
     {
-      "id": "/data/models/scaniverse2/scaniverse2_lod4.glb",
-      "type": "Model",
-      "format": "model/gltf-binary",
-      "service": [
-        {
-          "@id": "/data/models/scaniverse2/scaniverse2_lod4.glb",
-          "@type": "ModelService",
-          "profile": "http://iiif.io/api/3d/0/level0.json"
-        }
-      ]
+      "id": "/thumbnails/scaniverse2_thumbnail.png",
+      "type": "Image",
+      "format": "image/png",
+      "width": 512,
+      "height": 512
     }
   ],
   "rendering": [
@@ -365,7 +369,7 @@
   "service": [
     {
       "@context": "http://iiif.io/api/3d/0/context.json",
-      "@id": "http://localhost:3000",
+      "@id": "https://example.org",
       "@type": "Model3DService",
       "profile": "http://iiif.io/api/3d/0/level1.json"
     }

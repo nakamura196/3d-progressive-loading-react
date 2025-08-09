@@ -1,13 +1,14 @@
 {
   "@context": [
     "http://iiif.io/api/presentation/3/context.json",
+    "http://iiif.io/api/extension/navplace/context.json",
     {
       "gltf": "https://www.khronos.org/gltf/",
       "lod": "http://www.w3.org/ns/lod#",
       "quality": "http://iiif.io/api/presentation/3#quality"
     }
   ],
-  "id": "http://localhost:3000/sample_manifest.json",
+  "id": "https://example.org/manifest.json",
   "type": "Manifest",
   "label": {
     "en": [
@@ -18,12 +19,24 @@
     {
       "label": {
         "en": [
-          "Author"
+          "Type"
         ]
       },
       "value": {
         "en": [
-          "Crytek"
+          "Architectural"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Format"
+        ]
+      },
+      "value": {
+        "en": [
+          "glTF Binary"
         ]
       }
     },
@@ -42,24 +55,12 @@
     {
       "label": {
         "en": [
-          "Source"
-        ]
-      },
-      "value": {
-        "en": [
-          "https://www.crytek.com"
-        ]
-      }
-    },
-    {
-      "label": {
-        "en": [
           "Generated"
         ]
       },
       "value": {
         "en": [
-          "2025-08-09T10:19:38.080213"
+          "2025-08-09T22:11:08.640780"
         ]
       }
     },
@@ -78,12 +79,12 @@
     {
       "label": {
         "en": [
-          "LOD Support"
+          "LOD Levels"
         ]
       },
       "value": {
         "en": [
-          "5 levels of detail available"
+          "5"
         ]
       }
     },
@@ -95,17 +96,17 @@
       },
       "value": {
         "en": [
-          "230MB"
+          "230.3 MB"
         ]
       }
     }
   ],
   "summary": {
     "en": [
-      "Crytek Sponza Atrium 3D model with 5 LOD levels for progressive loading"
+      "Classic Sponza Atrium model with detailed architecture"
     ]
   },
-  "rights": "http://creativecommons.org/licenses/by/3.0/",
+  "rights": "http://creativecommons.org/licenses/by/4.0/",
   "requiredStatement": {
     "label": {
       "en": [
@@ -114,32 +115,40 @@
     },
     "value": {
       "en": [
-        "Crytek Sponza Atrium, licensed under CC BY 3.0"
+        "Provided via IIIF 3D Extension"
       ]
     }
   },
   "items": [
     {
-      "id": "http://localhost:3000/canvas/sponza",
+      "id": "https://example.org/canvas/1",
       "type": "Canvas",
       "label": {
         "en": [
-          "Sponza 3D Model"
+          "3D Model View"
         ]
       },
       "height": 1000,
       "width": 1000,
-      "duration": null,
+      "thumbnail": [
+        {
+          "id": "/thumbnails/sponza_s_thumbnail.png",
+          "type": "Image",
+          "format": "image/png",
+          "width": 512,
+          "height": 512
+        }
+      ],
       "items": [
         {
-          "id": "http://localhost:3000/canvas/sponza/page",
+          "id": "https://example.org/canvas/1/page",
           "type": "AnnotationPage",
           "items": [
             {
-              "id": "http://localhost:3000/canvas/sponza/annotation",
+              "id": "https://example.org/canvas/1/annotation/1",
               "type": "Annotation",
               "motivation": "painting",
-              "target": "http://localhost:3000/canvas/sponza",
+              "target": "https://example.org/canvas/1",
               "body": {
                 "type": "Choice",
                 "items": [
@@ -149,7 +158,7 @@
                     "format": "model/gltf-binary",
                     "label": {
                       "en": [
-                        "Maximum resolution with all details"
+                        "Maximum resolution (100%)"
                       ]
                     },
                     "profile": "https://www.khronos.org/gltf/",
@@ -159,7 +168,7 @@
                         "type": "ModelService",
                         "profile": "http://iiif.io/api/3d/0/level1.json",
                         "quality": "high",
-                        "fileSize": 177194648,
+                        "fileSize": 177380092,
                         "lodLevel": "lod0"
                       }
                     ]
@@ -170,7 +179,7 @@
                     "format": "model/gltf-binary",
                     "label": {
                       "en": [
-                        "High resolution"
+                        "High resolution (50%)"
                       ]
                     },
                     "profile": "https://www.khronos.org/gltf/",
@@ -180,7 +189,7 @@
                         "type": "ModelService",
                         "profile": "http://iiif.io/api/3d/0/level1.json",
                         "quality": "medium",
-                        "fileSize": 34603008,
+                        "fileSize": 35054312,
                         "lodLevel": "lod1"
                       }
                     ]
@@ -191,7 +200,7 @@
                     "format": "model/gltf-binary",
                     "label": {
                       "en": [
-                        "Medium-high resolution"
+                        "Medium resolution (25%)"
                       ]
                     },
                     "profile": "https://www.khronos.org/gltf/",
@@ -201,7 +210,7 @@
                         "type": "ModelService",
                         "profile": "http://iiif.io/api/3d/0/level1.json",
                         "quality": "low",
-                        "fileSize": 17825792,
+                        "fileSize": 17808916,
                         "lodLevel": "lod2"
                       }
                     ]
@@ -212,7 +221,7 @@
                     "format": "model/gltf-binary",
                     "label": {
                       "en": [
-                        "Medium-low resolution"
+                        "Low resolution (10%)"
                       ]
                     },
                     "profile": "https://www.khronos.org/gltf/",
@@ -222,7 +231,7 @@
                         "type": "ModelService",
                         "profile": "http://iiif.io/api/3d/0/level1.json",
                         "quality": "thumbnail",
-                        "fileSize": 7340032,
+                        "fileSize": 7380100,
                         "lodLevel": "lod3"
                       }
                     ]
@@ -233,7 +242,7 @@
                     "format": "model/gltf-binary",
                     "label": {
                       "en": [
-                        "Lowest resolution for fast preview"
+                        "Lowest resolution (5%)"
                       ]
                     },
                     "profile": "https://www.khronos.org/gltf/",
@@ -243,7 +252,7 @@
                         "type": "ModelService",
                         "profile": "http://iiif.io/api/3d/0/level1.json",
                         "quality": "thumbnail",
-                        "fileSize": 3879731,
+                        "fileSize": 3832476,
                         "lodLevel": "lod4"
                       }
                     ]
@@ -254,21 +263,62 @@
           ]
         }
       ],
-      "annotations": []
+      "annotations": [],
+      "navPlace": {
+        "id": "https://example.org/feature-collection/1",
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "id": "https://example.org/feature/1",
+            "type": "Feature",
+            "properties": {
+              "label": {
+                "en": [
+                  "Sponza Atrium"
+                ]
+              }
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                14.4378,
+                45.3276
+              ]
+            }
+          }
+        ]
+      },
+      "service": [
+        {
+          "@context": "http://example.org/3d/context.json",
+          "@type": "ViewingHints3D",
+          "camera": [
+            8.0,
+            5.0,
+            8.0
+          ],
+          "lookAt": [
+            0.0,
+            2.0,
+            0.0
+          ],
+          "fieldOfView": 60.0,
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ]
     }
   ],
   "thumbnail": [
     {
-      "id": "/data/models/sponza/sponza_s_lod4.glb",
-      "type": "Model",
-      "format": "model/gltf-binary",
-      "service": [
-        {
-          "@id": "/data/models/sponza/sponza_s_lod4.glb",
-          "@type": "ModelService",
-          "profile": "http://iiif.io/api/3d/0/level0.json"
-        }
-      ]
+      "id": "/thumbnails/sponza_s_thumbnail.png",
+      "type": "Image",
+      "format": "image/png",
+      "width": 512,
+      "height": 512
     }
   ],
   "rendering": [
@@ -277,7 +327,7 @@
       "type": "Model",
       "label": {
         "en": [
-          "Download LOD0 (169.0 MB)"
+          "Download LOD0 (169.2 MB)"
         ]
       },
       "format": "model/gltf-binary"
@@ -287,7 +337,7 @@
       "type": "Model",
       "label": {
         "en": [
-          "Download LOD1 (33.0 MB)"
+          "Download LOD1 (33.4 MB)"
         ]
       },
       "format": "model/gltf-binary"
@@ -331,7 +381,7 @@
   "service": [
     {
       "@context": "http://iiif.io/api/3d/0/context.json",
-      "@id": "http://localhost:3000",
+      "@id": "https://example.org",
       "@type": "Model3DService",
       "profile": "http://iiif.io/api/3d/0/level1.json"
     }
