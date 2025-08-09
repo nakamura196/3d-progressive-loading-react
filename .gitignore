@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+.vite/
+.env
+.env.local
+
+# Large model files (use Git LFS or download separately)
+data/models/sponza/sponza_s_lod0.glb
+data/models/sponza/sponza_s_lod1.glb
