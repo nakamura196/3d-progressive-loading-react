@@ -1,7 +1,7 @@
 'use client';
 
 import { Layout } from '../src/components/Layout';
-import { Home } from '../src/pages/Home';
+import { Home } from '../src/views/Home';
 
 export default function HomePage() {
   return (

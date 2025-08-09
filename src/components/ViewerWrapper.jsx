@@ -6,7 +6,7 @@ export function ViewerWrapper() {
   const [Viewer, setViewer] = useState(null);
 
   useEffect(() => {
-    import('../pages/Viewer').then(mod => {
+    import('../views/Viewer').then(mod => {
       setViewer(() => mod.Viewer);
     });
   }, []);

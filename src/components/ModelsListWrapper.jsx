@@ -6,7 +6,7 @@ export function ModelsListWrapper() {
   const [ModelsList, setModelsList] = useState(null);
 
   useEffect(() => {
-    import('../pages/ModelsList').then(mod => {
+    import('../views/ModelsList').then(mod => {
       setModelsList(() => mod.ModelsList);
     });
   }, []);

@@ -6,7 +6,7 @@ export function MapViewWrapper() {
   const [MapView, setMapView] = useState(null);
 
   useEffect(() => {
-    import('../pages/MapView').then(mod => {
+    import('../views/MapView').then(mod => {
       setMapView(() => mod.MapView);
     });
   }, []);

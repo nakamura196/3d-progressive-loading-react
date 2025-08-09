@@ -1,0 +1,48 @@
+{
+  "../node_modules/@react-three/drei/core/VideoTexture.js -> hls.js": {
+    "id": "../node_modules/@react-three/drei/core/VideoTexture.js -> hls.js",
+    "files": []
+  },
+  "../node_modules/@react-three/drei/web/FaceLandmarker.js -> @mediapipe/tasks-vision": {
+    "id": "../node_modules/@react-three/drei/web/FaceLandmarker.js -> @mediapipe/tasks-vision",
+    "files": []
+  },
+  "../node_modules/@vis.gl/react-maplibre/dist/components/map.js -> maplibre-gl": {
+    "id": "../node_modules/@vis.gl/react-maplibre/dist/components/map.js -> maplibre-gl",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_maplibre-gl_dist_maplibre-gl_js.js"
+    ]
+  },
+  "components/Hero3DWrapper.jsx -> ./Hero3D": {
+    "id": "components/Hero3DWrapper.jsx -> ./Hero3D",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_Hero3D_jsx.js"
+    ]
+  },
+  "components/MapViewWrapper.jsx -> ../views/MapView": {
+    "id": "components/MapViewWrapper.jsx -> ../views/MapView",
+    "files": [
+      "static/css/_app-pages-browser_src_views_MapView_jsx.css",
+      "static/chunks/_app-pages-browser_src_views_MapView_jsx.js"
+    ]
+  },
+  "components/ModelsListWrapper.jsx -> ../views/ModelsList": {
+    "id": "components/ModelsListWrapper.jsx -> ../views/ModelsList",
+    "files": [
+      "static/css/_app-pages-browser_src_views_ModelsList_jsx.css",
+      "static/chunks/_app-pages-browser_src_views_ModelsList_jsx.js"
+    ]
+  },
+  "components/ViewerWrapper.jsx -> ../views/Viewer": {
+    "id": "components/ViewerWrapper.jsx -> ../views/Viewer",
+    "files": [
+      "static/chunks/_app-pages-browser_src_views_Viewer_jsx.js"
+    ]
+  },
+  "views/Viewer.jsx -> ../components/Viewer3DCanvas": {
+    "id": "views/Viewer.jsx -> ../components/Viewer3DCanvas",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_Viewer3DCanvas_jsx.js"
+    ]
+  }
+}
