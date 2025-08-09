@@ -1,0 +1,327 @@
+{
+  "@context": [
+    "http://iiif.io/api/presentation/3/context.json",
+    {
+      "gltf": "https://www.khronos.org/gltf/",
+      "lod": "http://www.w3.org/ns/lod#",
+      "quality": "http://iiif.io/api/presentation/3#quality"
+    }
+  ],
+  "id": "http://localhost:3000/data/manifests/scaniverse_iiif.json",
+  "type": "Manifest",
+  "label": {
+    "en": [
+      "Scaniverse 3D Scan"
+    ]
+  },
+  "metadata": [
+    {
+      "label": {
+        "en": [
+          "Created"
+        ]
+      },
+      "value": {
+        "en": [
+          "2025-08-09"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Scanner"
+        ]
+      },
+      "value": {
+        "en": [
+          "Scaniverse App"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Generated"
+        ]
+      },
+      "value": {
+        "en": [
+          "2025-08-09T21:30:50.098853"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "3D Format"
+        ]
+      },
+      "value": {
+        "en": [
+          "glTF 2.0 Binary (.glb)"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "LOD Support"
+        ]
+      },
+      "value": {
+        "en": [
+          "5 levels of detail available"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Total Size"
+        ]
+      },
+      "value": {
+        "en": [
+          "45MB (all LODs)"
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "en": [
+      "3D scan created with Scaniverse app with 5 LOD levels for progressive loading"
+    ]
+  },
+  "rights": "http://creativecommons.org/licenses/by/4.0/",
+  "requiredStatement": {
+    "label": {
+      "en": [
+        "Attribution"
+      ]
+    },
+    "value": {
+      "en": [
+        "Created with Scaniverse App"
+      ]
+    }
+  },
+  "items": [
+    {
+      "id": "http://localhost:3000/canvas/scaniverse",
+      "type": "Canvas",
+      "label": {
+        "en": [
+          "Scaniverse 3D Model"
+        ]
+      },
+      "height": 1000,
+      "width": 1000,
+      "duration": null,
+      "items": [
+        {
+          "id": "http://localhost:3000/canvas/scaniverse/page",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "http://localhost:3000/canvas/scaniverse/annotation",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "http://localhost:3000/canvas/scaniverse",
+              "body": {
+                "type": "Choice",
+                "items": [
+                  {
+                    "id": "/data/models/scaniverse/scaniverse_original_lod0.glb",
+                    "type": "Model",
+                    "format": "model/gltf-binary",
+                    "label": {
+                      "en": [
+                        "Maximum resolution"
+                      ]
+                    },
+                    "profile": "https://www.khronos.org/gltf/",
+                    "service": [
+                      {
+                        "id": "/data/models/scaniverse/scaniverse_original_lod0.glb",
+                        "type": "ModelService",
+                        "profile": "http://iiif.io/api/3d/0/level1.json",
+                        "quality": "high",
+                        "fileSize": 40253145,
+                        "lodLevel": "lod0"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "/data/models/scaniverse/scaniverse_original_lod1.glb",
+                    "type": "Model",
+                    "format": "model/gltf-binary",
+                    "label": {
+                      "en": [
+                        "High resolution"
+                      ]
+                    },
+                    "profile": "https://www.khronos.org/gltf/",
+                    "service": [
+                      {
+                        "id": "/data/models/scaniverse/scaniverse_original_lod1.glb",
+                        "type": "ModelService",
+                        "profile": "http://iiif.io/api/3d/0/level1.json",
+                        "quality": "medium",
+                        "fileSize": 2989875,
+                        "lodLevel": "lod1"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "/data/models/scaniverse/scaniverse_original_lod2.glb",
+                    "type": "Model",
+                    "format": "model/gltf-binary",
+                    "label": {
+                      "en": [
+                        "Medium resolution"
+                      ]
+                    },
+                    "profile": "https://www.khronos.org/gltf/",
+                    "service": [
+                      {
+                        "id": "/data/models/scaniverse/scaniverse_original_lod2.glb",
+                        "type": "ModelService",
+                        "profile": "http://iiif.io/api/3d/0/level1.json",
+                        "quality": "low",
+                        "fileSize": 1507011,
+                        "lodLevel": "lod2"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "/data/models/scaniverse/scaniverse_original_lod3.glb",
+                    "type": "Model",
+                    "format": "model/gltf-binary",
+                    "label": {
+                      "en": [
+                        "Low resolution"
+                      ]
+                    },
+                    "profile": "https://www.khronos.org/gltf/",
+                    "service": [
+                      {
+                        "id": "/data/models/scaniverse/scaniverse_original_lod3.glb",
+                        "type": "ModelService",
+                        "profile": "http://iiif.io/api/3d/0/level1.json",
+                        "quality": "thumbnail",
+                        "fileSize": 617731,
+                        "lodLevel": "lod3"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "/data/models/scaniverse/scaniverse_original_lod4.glb",
+                    "type": "Model",
+                    "format": "model/gltf-binary",
+                    "label": {
+                      "en": [
+                        "Lowest resolution"
+                      ]
+                    },
+                    "profile": "https://www.khronos.org/gltf/",
+                    "service": [
+                      {
+                        "id": "/data/models/scaniverse/scaniverse_original_lod4.glb",
+                        "type": "ModelService",
+                        "profile": "http://iiif.io/api/3d/0/level1.json",
+                        "quality": "thumbnail",
+                        "fileSize": 316675,
+                        "lodLevel": "lod4"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "annotations": []
+    }
+  ],
+  "thumbnail": [
+    {
+      "id": "/data/models/scaniverse/scaniverse_original_lod4.glb",
+      "type": "Model",
+      "format": "model/gltf-binary",
+      "service": [
+        {
+          "@id": "/data/models/scaniverse/scaniverse_original_lod4.glb",
+          "@type": "ModelService",
+          "profile": "http://iiif.io/api/3d/0/level0.json"
+        }
+      ]
+    }
+  ],
+  "rendering": [
+    {
+      "id": "/data/models/scaniverse/scaniverse_original_lod0.glb",
+      "type": "Model",
+      "label": {
+        "en": [
+          "Download LOD0 (38.4 MB)"
+        ]
+      },
+      "format": "model/gltf-binary"
+    },
+    {
+      "id": "/data/models/scaniverse/scaniverse_original_lod1.glb",
+      "type": "Model",
+      "label": {
+        "en": [
+          "Download LOD1 (2.9 MB)"
+        ]
+      },
+      "format": "model/gltf-binary"
+    },
+    {
+      "id": "/data/models/scaniverse/scaniverse_original_lod2.glb",
+      "type": "Model",
+      "label": {
+        "en": [
+          "Download LOD2 (1.4 MB)"
+        ]
+      },
+      "format": "model/gltf-binary"
+    },
+    {
+      "id": "/data/models/scaniverse/scaniverse_original_lod3.glb",
+      "type": "Model",
+      "label": {
+        "en": [
+          "Download LOD3 (0.6 MB)"
+        ]
+      },
+      "format": "model/gltf-binary"
+    },
+    {
+      "id": "/data/models/scaniverse/scaniverse_original_lod4.glb",
+      "type": "Model",
+      "label": {
+        "en": [
+          "Download LOD4 (0.3 MB)"
+        ]
+      },
+      "format": "model/gltf-binary"
+    }
+  ],
+  "viewing_direction": "none",
+  "behavior": [
+    "continuous",
+    "individuals"
+  ],
+  "service": [
+    {
+      "@context": "http://iiif.io/api/3d/0/context.json",
+      "@id": "http://localhost:3000",
+      "@type": "Model3DService",
+      "profile": "http://iiif.io/api/3d/0/level1.json"
+    }
+  ]
+}
