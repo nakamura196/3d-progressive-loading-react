@@ -5,6 +5,7 @@ import { Home } from './pages/Home';
 import { Viewer } from './pages/Viewer';
 import { ModelsList } from './pages/ModelsList';
 import { MapView } from './pages/MapView';
+import { GenerateThumbnails } from './pages/GenerateThumbnails';
 import './App.css';
 
 function App() {
@@ -29,6 +30,11 @@ function App() {
         <Route path="/map" element={
           <Layout>
             <MapView />
+          </Layout>
+        } />
+        <Route path="/generate-thumbnails" element={
+          <Layout>
+            <GenerateThumbnails />
           </Layout>
         } />
       </Routes>
