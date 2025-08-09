@@ -1,0 +1,339 @@
+{
+  "@context": [
+    "http://iiif.io/api/presentation/3/context.json",
+    {
+      "gltf": "https://www.khronos.org/gltf/",
+      "lod": "http://www.w3.org/ns/lod#",
+      "quality": "http://iiif.io/api/presentation/3#quality"
+    }
+  ],
+  "id": "http://localhost:3000/sample_manifest.json",
+  "type": "Manifest",
+  "label": {
+    "en": [
+      "Sponza Atrium"
+    ]
+  },
+  "metadata": [
+    {
+      "label": {
+        "en": [
+          "Author"
+        ]
+      },
+      "value": {
+        "en": [
+          "Crytek"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "License"
+        ]
+      },
+      "value": {
+        "en": [
+          "CC BY 3.0"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Source"
+        ]
+      },
+      "value": {
+        "en": [
+          "https://www.crytek.com"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Generated"
+        ]
+      },
+      "value": {
+        "en": [
+          "2025-08-09T10:19:38.080213"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "3D Format"
+        ]
+      },
+      "value": {
+        "en": [
+          "glTF 2.0 Binary (.glb)"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "LOD Support"
+        ]
+      },
+      "value": {
+        "en": [
+          "5 levels of detail available"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Total Size"
+        ]
+      },
+      "value": {
+        "en": [
+          "230MB"
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "en": [
+      "Crytek Sponza Atrium 3D model with 5 LOD levels for progressive loading"
+    ]
+  },
+  "rights": "http://creativecommons.org/licenses/by/3.0/",
+  "requiredStatement": {
+    "label": {
+      "en": [
+        "Attribution"
+      ]
+    },
+    "value": {
+      "en": [
+        "Crytek Sponza Atrium, licensed under CC BY 3.0"
+      ]
+    }
+  },
+  "items": [
+    {
+      "id": "http://localhost:3000/canvas/sponza",
+      "type": "Canvas",
+      "label": {
+        "en": [
+          "Sponza 3D Model"
+        ]
+      },
+      "height": 1000,
+      "width": 1000,
+      "duration": null,
+      "items": [
+        {
+          "id": "http://localhost:3000/canvas/sponza/page",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "http://localhost:3000/canvas/sponza/annotation",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "http://localhost:3000/canvas/sponza",
+              "body": {
+                "type": "Choice",
+                "items": [
+                  {
+                    "id": "/data/models/sponza/sponza_s_lod0.glb",
+                    "type": "Model",
+                    "format": "model/gltf-binary",
+                    "label": {
+                      "en": [
+                        "Maximum resolution with all details"
+                      ]
+                    },
+                    "profile": "https://www.khronos.org/gltf/",
+                    "service": [
+                      {
+                        "id": "/data/models/sponza/sponza_s_lod0.glb",
+                        "type": "ModelService",
+                        "profile": "http://iiif.io/api/3d/0/level1.json",
+                        "quality": "high",
+                        "fileSize": 177194648,
+                        "lodLevel": "lod0"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "/data/models/sponza/sponza_s_lod1.glb",
+                    "type": "Model",
+                    "format": "model/gltf-binary",
+                    "label": {
+                      "en": [
+                        "High resolution"
+                      ]
+                    },
+                    "profile": "https://www.khronos.org/gltf/",
+                    "service": [
+                      {
+                        "id": "/data/models/sponza/sponza_s_lod1.glb",
+                        "type": "ModelService",
+                        "profile": "http://iiif.io/api/3d/0/level1.json",
+                        "quality": "medium",
+                        "fileSize": 34603008,
+                        "lodLevel": "lod1"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "/data/models/sponza/sponza_s_lod2.glb",
+                    "type": "Model",
+                    "format": "model/gltf-binary",
+                    "label": {
+                      "en": [
+                        "Medium-high resolution"
+                      ]
+                    },
+                    "profile": "https://www.khronos.org/gltf/",
+                    "service": [
+                      {
+                        "id": "/data/models/sponza/sponza_s_lod2.glb",
+                        "type": "ModelService",
+                        "profile": "http://iiif.io/api/3d/0/level1.json",
+                        "quality": "low",
+                        "fileSize": 17825792,
+                        "lodLevel": "lod2"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "/data/models/sponza/sponza_s_lod3.glb",
+                    "type": "Model",
+                    "format": "model/gltf-binary",
+                    "label": {
+                      "en": [
+                        "Medium-low resolution"
+                      ]
+                    },
+                    "profile": "https://www.khronos.org/gltf/",
+                    "service": [
+                      {
+                        "id": "/data/models/sponza/sponza_s_lod3.glb",
+                        "type": "ModelService",
+                        "profile": "http://iiif.io/api/3d/0/level1.json",
+                        "quality": "thumbnail",
+                        "fileSize": 7340032,
+                        "lodLevel": "lod3"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "/data/models/sponza/sponza_s_lod4.glb",
+                    "type": "Model",
+                    "format": "model/gltf-binary",
+                    "label": {
+                      "en": [
+                        "Lowest resolution for fast preview"
+                      ]
+                    },
+                    "profile": "https://www.khronos.org/gltf/",
+                    "service": [
+                      {
+                        "id": "/data/models/sponza/sponza_s_lod4.glb",
+                        "type": "ModelService",
+                        "profile": "http://iiif.io/api/3d/0/level1.json",
+                        "quality": "thumbnail",
+                        "fileSize": 3879731,
+                        "lodLevel": "lod4"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "annotations": []
+    }
+  ],
+  "thumbnail": [
+    {
+      "id": "/data/models/sponza/sponza_s_lod4.glb",
+      "type": "Model",
+      "format": "model/gltf-binary",
+      "service": [
+        {
+          "@id": "/data/models/sponza/sponza_s_lod4.glb",
+          "@type": "ModelService",
+          "profile": "http://iiif.io/api/3d/0/level0.json"
+        }
+      ]
+    }
+  ],
+  "rendering": [
+    {
+      "id": "/data/models/sponza/sponza_s_lod0.glb",
+      "type": "Model",
+      "label": {
+        "en": [
+          "Download LOD0 (169.0 MB)"
+        ]
+      },
+      "format": "model/gltf-binary"
+    },
+    {
+      "id": "/data/models/sponza/sponza_s_lod1.glb",
+      "type": "Model",
+      "label": {
+        "en": [
+          "Download LOD1 (33.0 MB)"
+        ]
+      },
+      "format": "model/gltf-binary"
+    },
+    {
+      "id": "/data/models/sponza/sponza_s_lod2.glb",
+      "type": "Model",
+      "label": {
+        "en": [
+          "Download LOD2 (17.0 MB)"
+        ]
+      },
+      "format": "model/gltf-binary"
+    },
+    {
+      "id": "/data/models/sponza/sponza_s_lod3.glb",
+      "type": "Model",
+      "label": {
+        "en": [
+          "Download LOD3 (7.0 MB)"
+        ]
+      },
+      "format": "model/gltf-binary"
+    },
+    {
+      "id": "/data/models/sponza/sponza_s_lod4.glb",
+      "type": "Model",
+      "label": {
+        "en": [
+          "Download LOD4 (3.7 MB)"
+        ]
+      },
+      "format": "model/gltf-binary"
+    }
+  ],
+  "viewing_direction": "none",
+  "behavior": [
+    "continuous",
+    "individuals"
+  ],
+  "service": [
+    {
+      "@context": "http://iiif.io/api/3d/0/context.json",
+      "@id": "http://localhost:3000",
+      "@type": "Model3DService",
+      "profile": "http://iiif.io/api/3d/0/level1.json"
+    }
+  ]
+}
