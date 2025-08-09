@@ -1,6 +1,7 @@
 {
   "@context": [
     "http://iiif.io/api/presentation/3/context.json",
+    "http://iiif.io/api/extension/navplace/context.json",
     {
       "gltf": "https://www.khronos.org/gltf/",
       "lod": "http://www.w3.org/ns/lod#",
@@ -47,7 +48,7 @@
       },
       "value": {
         "en": [
-          "2025-08-09T21:36:26.897185"
+          "2025-08-09T21:48:35.722208"
         ]
       }
     },
@@ -241,7 +242,53 @@
           ]
         }
       ],
-      "annotations": []
+      "annotations": [],
+      "navPlace": {
+        "id": "http://localhost:3000/feature-collection/1",
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "id": "http://localhost:3000/feature/1",
+            "type": "Feature",
+            "properties": {
+              "label": {
+                "en": [
+                  "Scaniverse 3D Scan 2"
+                ]
+              }
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                139.7525,
+                35.6846
+              ]
+            }
+          }
+        ]
+      },
+      "service": [
+        {
+          "@context": "http://example.org/3d/context.json",
+          "@type": "ViewingHints3D",
+          "camera": [
+            6.0,
+            3.0,
+            6.0
+          ],
+          "lookAt": [
+            0.0,
+            1.5,
+            0.0
+          ],
+          "fieldOfView": 45.0,
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ]
     }
   ],
   "thumbnail": [

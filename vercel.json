@@ -1,5 +1,22 @@
 {
+  "functions": {
+    "api/data/[...path].js": {
+      "maxDuration": 10
+    }
+  },
   "rewrites": [
+    {
+      "source": "/data/manifests/:path*",
+      "destination": "/data/manifests/:path*"
+    },
+    {
+      "source": "/data/models/:path*", 
+      "destination": "/data/models/:path*"
+    },
+    {
+      "source": "/data/(.*)",
+      "destination": "/api/data/[...path]"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"
@@ -27,6 +44,20 @@
           "value": "public, max-age=31536000, immutable"
         }
       ]
+    },
+    {
+      "source": "/(.*).json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
     }
-  ]
+  ],
+  "trailingSlash": false
 }

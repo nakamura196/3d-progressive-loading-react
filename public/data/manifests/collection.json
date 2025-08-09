@@ -1,0 +1,312 @@
+{
+  "@context": [
+    "http://iiif.io/api/presentation/3/context.json",
+    "http://iiif.io/api/extension/navplace/context.json"
+  ],
+  "id": "http://localhost:3000/data/manifests/collection.json",
+  "type": "Collection",
+  "label": {
+    "en": [
+      "3D Scans Collection"
+    ]
+  },
+  "metadata": [
+    {
+      "label": {
+        "en": [
+          "Generated"
+        ]
+      },
+      "value": {
+        "en": [
+          "2025-08-09T21:49:13.317031"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Total Items"
+        ]
+      },
+      "value": {
+        "en": [
+          "3"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Organization"
+        ]
+      },
+      "value": {
+        "en": [
+          "IIIF 3D Demo"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "License"
+        ]
+      },
+      "value": {
+        "en": [
+          "CC BY 4.0"
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "en": [
+      "Collection of 3D models including Sponza and Scaniverse scans"
+    ]
+  },
+  "items": [
+    {
+      "id": "http://localhost:3000/data/manifests/scaniverse2_iiif.json",
+      "type": "Manifest",
+      "label": {
+        "en": [
+          "Scaniverse 3D Scan 2"
+        ]
+      },
+      "thumbnail": [
+        {
+          "id": "/data/models/scaniverse2/scaniverse2_lod4.glb",
+          "type": "Model",
+          "format": "model/gltf-binary",
+          "service": [
+            {
+              "@id": "/data/models/scaniverse2/scaniverse2_lod4.glb",
+              "@type": "ModelService",
+              "profile": "http://iiif.io/api/3d/0/level0.json"
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "en": [
+          "Second 3D scan created with Scaniverse app"
+        ]
+      },
+      "metadata": [
+        {
+          "label": {
+            "en": [
+              "Created"
+            ]
+          },
+          "value": {
+            "en": [
+              "2025-08-09 15:57"
+            ]
+          }
+        },
+        {
+          "label": {
+            "en": [
+              "Scanner"
+            ]
+          },
+          "value": {
+            "en": [
+              "Scaniverse App"
+            ]
+          }
+        },
+        {
+          "label": {
+            "en": [
+              "LOD Levels"
+            ]
+          },
+          "value": {
+            "en": [
+              "5"
+            ]
+          }
+        },
+        {
+          "label": {
+            "en": [
+              "Total Size"
+            ]
+          },
+          "value": {
+            "en": [
+              "63.1 MB"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "http://localhost:3000/data/manifests/scaniverse_iiif.json",
+      "type": "Manifest",
+      "label": {
+        "en": [
+          "Scaniverse 3D Scan 1"
+        ]
+      },
+      "thumbnail": [
+        {
+          "id": "/data/models/scaniverse/scaniverse_lod4.glb",
+          "type": "Model",
+          "format": "model/gltf-binary",
+          "service": [
+            {
+              "@id": "/data/models/scaniverse/scaniverse_lod4.glb",
+              "@type": "ModelService",
+              "profile": "http://iiif.io/api/3d/0/level0.json"
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "en": [
+          "First 3D scan created with Scaniverse app"
+        ]
+      },
+      "metadata": [
+        {
+          "label": {
+            "en": [
+              "Created"
+            ]
+          },
+          "value": {
+            "en": [
+              "2025-08-09 15:10"
+            ]
+          }
+        },
+        {
+          "label": {
+            "en": [
+              "Scanner"
+            ]
+          },
+          "value": {
+            "en": [
+              "Scaniverse App"
+            ]
+          }
+        },
+        {
+          "label": {
+            "en": [
+              "LOD Levels"
+            ]
+          },
+          "value": {
+            "en": [
+              "5"
+            ]
+          }
+        },
+        {
+          "label": {
+            "en": [
+              "Total Size"
+            ]
+          },
+          "value": {
+            "en": [
+              "43.5 MB"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "http://localhost:3000/data/manifests/sponza_iiif.json",
+      "type": "Manifest",
+      "label": {
+        "en": [
+          "Sponza Atrium"
+        ]
+      },
+      "thumbnail": [
+        {
+          "id": "/data/models/sponza/sponza_s_lod4.glb",
+          "type": "Model",
+          "format": "model/gltf-binary",
+          "service": [
+            {
+              "@id": "/data/models/sponza/sponza_s_lod4.glb",
+              "@type": "ModelService",
+              "profile": "http://iiif.io/api/3d/0/level0.json"
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "en": [
+          "Crytek Sponza Atrium 3D model with 5 LOD levels for progressive loading"
+        ]
+      },
+      "metadata": [
+        {
+          "label": {
+            "en": [
+              "Total Size"
+            ]
+          },
+          "value": {
+            "en": [
+              "230MB"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "navPlace": {
+    "id": "http://localhost:3000/data/manifests/collection/feature-collection",
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "id": "http://localhost:3000/feature/1",
+        "type": "Feature",
+        "properties": {
+          "label": {
+            "en": [
+              "Scaniverse 3D Scan 2"
+            ]
+          },
+          "manifest": "http://localhost:3000/data/manifests/scaniverse2_iiif.json"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            139.7525,
+            35.6846
+          ]
+        }
+      },
+      {
+        "id": "http://localhost:3000/feature/1",
+        "type": "Feature",
+        "properties": {
+          "label": {
+            "en": [
+              "Scaniverse 3D Scan 1"
+            ]
+          },
+          "manifest": "http://localhost:3000/data/manifests/scaniverse_iiif.json"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            139.7673,
+            35.6812
+          ]
+        }
+      }
+    ]
+  }
+}

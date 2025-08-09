@@ -54,8 +54,16 @@ def get_label_for_lod(lod_level):
     }
     return label_map.get(lod_level, f'Level {lod_level}')
 
-def create_iiif_manifest(model_name, model_dir, base_url, metadata=None):
-    """Create IIIF manifest for a model with LOD levels"""
+def create_iiif_manifest(model_name, model_dir, base_url, metadata=None, nav_place=None):
+    """Create IIIF manifest for a model with LOD levels
+    
+    Args:
+        model_name: Base name of the model
+        model_dir: Directory containing LOD files
+        base_url: Base URL for the manifest
+        metadata: Additional metadata dictionary
+        nav_place: Navigation/camera settings dictionary
+    """
     
     # Find all LOD files
     lod_files = find_lod_files(model_dir, model_name)
@@ -73,6 +81,7 @@ def create_iiif_manifest(model_name, model_dir, base_url, metadata=None):
     manifest = {
         "@context": [
             "http://iiif.io/api/presentation/3/context.json",
+            "http://iiif.io/api/extension/navplace/context.json",
             {
                 "gltf": "https://www.khronos.org/gltf/",
                 "lod": "http://www.w3.org/ns/lod#",
@@ -121,7 +130,7 @@ def create_iiif_manifest(model_name, model_dir, base_url, metadata=None):
         {"label": {"en": ["Total Size"]}, "value": {"en": [f"{total_size_mb:.1f} MB"]}}
     ])
     
-    # Create canvas
+    # Create canvas with navPlace for 3D viewing parameters
     canvas = {
         "id": f"{base_url}/canvas/1",
         "type": "Canvas",
@@ -131,6 +140,37 @@ def create_iiif_manifest(model_name, model_dir, base_url, metadata=None):
         "items": [],
         "annotations": []
     }
+    
+    # Add navPlace (GeoJSON) if geographic coordinates are provided
+    if nav_place and 'coordinates' in nav_place:
+        canvas["navPlace"] = {
+            "id": f"{base_url}/feature-collection/1",
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "id": f"{base_url}/feature/1",
+                    "type": "Feature",
+                    "properties": {
+                        "label": {"en": [metadata.get('label', model_name)]}
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": nav_place['coordinates']  # [longitude, latitude]
+                    }
+                }
+            ]
+        }
+    
+    # Add 3D viewing hints as a separate service (not standard IIIF but useful)
+    if nav_place and any(k in nav_place for k in ['camera', 'lookAt', 'fieldOfView']):
+        canvas["service"] = [{
+            "@context": "http://example.org/3d/context.json",
+            "@type": "ViewingHints3D",
+            "camera": nav_place.get('camera', [5, 3, 5]),
+            "lookAt": nav_place.get('lookAt', [0, 0, 0]),
+            "fieldOfView": nav_place.get('fieldOfView', 45),
+            "up": nav_place.get('up', [0, 1, 0])
+        }]
     
     # Create annotation page with Choice body for LOD variants
     anno_page = {
@@ -244,6 +284,17 @@ def main():
     parser.add_argument('-m', '--metadata', action='append', nargs=2, metavar=('KEY', 'VALUE'),
                         help='Add metadata key-value pairs (can be used multiple times)')
     
+    # Geographic location (navPlace)
+    parser.add_argument('--coordinates', nargs=2, type=float, metavar=('LON', 'LAT'),
+                        help='Geographic coordinates [longitude, latitude] for navPlace')
+    
+    # 3D viewing hints (separate from navPlace)
+    parser.add_argument('--camera', nargs=3, type=float, metavar=('X', 'Y', 'Z'),
+                        help='Initial 3D camera position (default: 5 3 5)')
+    parser.add_argument('--look-at', nargs=3, type=float, metavar=('X', 'Y', 'Z'),
+                        help='3D camera look-at target (default: 0 0 0)')
+    parser.add_argument('--fov', type=float, help='Field of view in degrees (default: 45)')
+    
     args = parser.parse_args()
     
     # Prepare metadata
@@ -262,12 +313,24 @@ def main():
     # Remove None values
     metadata = {k: v for k, v in metadata.items() if v is not None}
     
+    # Prepare navPlace settings
+    nav_place = {}
+    if args.coordinates:
+        nav_place['coordinates'] = args.coordinates
+    if args.camera:
+        nav_place['camera'] = args.camera
+    if args.look_at:
+        nav_place['lookAt'] = args.look_at
+    if args.fov:
+        nav_place['fieldOfView'] = args.fov
+    
     # Create manifest
     manifest = create_iiif_manifest(
         model_name=args.model_name,
         model_dir=args.model_dir,
         base_url=args.url,
-        metadata=metadata
+        metadata=metadata,
+        nav_place=nav_place if nav_place else None
     )
     
     if manifest:

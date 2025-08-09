@@ -1,6 +1,7 @@
 {
   "@context": [
     "http://iiif.io/api/presentation/3/context.json",
+    "http://iiif.io/api/extension/navplace/context.json",
     {
       "gltf": "https://www.khronos.org/gltf/",
       "lod": "http://www.w3.org/ns/lod#",
@@ -42,12 +43,24 @@
     {
       "label": {
         "en": [
+          "Device"
+        ]
+      },
+      "value": {
+        "en": [
+          "iPhone"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
           "Generated"
         ]
       },
       "value": {
         "en": [
-          "2025-08-09T21:36:09.096712"
+          "2025-08-09T21:48:11.827364"
         ]
       }
     },
@@ -241,7 +254,53 @@
           ]
         }
       ],
-      "annotations": []
+      "annotations": [],
+      "navPlace": {
+        "id": "http://localhost:3000/feature-collection/1",
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "id": "http://localhost:3000/feature/1",
+            "type": "Feature",
+            "properties": {
+              "label": {
+                "en": [
+                  "Scaniverse 3D Scan 1"
+                ]
+              }
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                139.7673,
+                35.6812
+              ]
+            }
+          }
+        ]
+      },
+      "service": [
+        {
+          "@context": "http://example.org/3d/context.json",
+          "@type": "ViewingHints3D",
+          "camera": [
+            4.0,
+            2.0,
+            4.0
+          ],
+          "lookAt": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "fieldOfView": 50.0,
+          "up": [
+            0,
+            1,
+            0
+          ]
+        }
+      ]
     }
   ],
   "thumbnail": [
