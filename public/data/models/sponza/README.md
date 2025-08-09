@@ -1,20 +1,19 @@
 # Sponza Model Files
 
-The GLB model files should be placed in this directory for deployment.
+## Included Files (in Git repository)
+- ✅ sponza_s_lod2.glb (17MB) - Medium quality
+- ✅ sponza_s_lod3.glb (7MB) - Low quality  
+- ✅ sponza_s_lod4.glb (3.7MB) - Lowest quality
 
-## Required Files
-- sponza_s_lod0.glb (169MB)
-- sponza_s_lod1.glb (33MB)
-- sponza_s_lod2.glb (17MB)
-- sponza_s_lod3.glb (7MB)
-- sponza_s_lod4.glb (3.7MB)
+## Missing Files (need separate deployment)
+- ❌ sponza_s_lod0.glb (169MB) - Extreme quality
+- ❌ sponza_s_lod1.glb (33MB) - Ultra quality
 
-## Download Instructions
+## Note for Full Experience
 
-1. Copy the files from `/data/models/sponza/` to this directory
-2. Or download them from your source repository
+The application will work with lod2-lod4 files, showing progressive loading from low to medium quality.
+For the complete experience with all 5 LOD levels, you need to:
 
-## Note for Vercel Deployment
-
-Due to file size limitations, the GLB files are not included in the Git repository.
-You need to manually upload them to your Vercel deployment or use a CDN service.
+1. Upload lod0 and lod1 files to Vercel separately
+2. Or use a CDN service for the large files
+3. Or use Git LFS for version control

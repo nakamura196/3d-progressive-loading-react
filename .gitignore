@@ -8,7 +8,13 @@ dist/
 
 # Large model files (use Git LFS or download separately)
 data/models/sponza/*.glb
-public/data/models/sponza/*.glb
 
-# But include manifest files
+# Exclude only large GLB files from public directory
+public/data/models/sponza/sponza_s_lod0.glb
+public/data/models/sponza/sponza_s_lod1.glb
+
+# Include smaller GLB files (lod2-lod4) and manifest files
+!public/data/models/sponza/sponza_s_lod2.glb
+!public/data/models/sponza/sponza_s_lod3.glb
+!public/data/models/sponza/sponza_s_lod4.glb
 !public/data/manifests/**/*.json
