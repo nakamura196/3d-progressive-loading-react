@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Float, Text3D, Center, Environment } from '@react-three/drei';
+import { OrbitControls, Float, Box, Sphere, Torus, Environment } from '@react-three/drei';
 import './Home.css';
 
 function Hero3D() {
@@ -10,22 +10,17 @@ function Hero3D() {
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} />
       <Float speed={2} rotationIntensity={1} floatIntensity={2}>
-        <Center>
-          <Text3D
-            font="/fonts/helvetiker_regular.typeface.json"
-            size={0.75}
-            height={0.2}
-            curveSegments={12}
-            bevelEnabled
-            bevelThickness={0.02}
-            bevelSize={0.02}
-            bevelOffset={0}
-            bevelSegments={5}
-          >
-            IIIF 3D
+        <group>
+          <Box args={[1, 1, 1]} position={[-2, 0, 0]}>
             <meshStandardMaterial color="#6366f1" />
-          </Text3D>
-        </Center>
+          </Box>
+          <Sphere args={[0.7]} position={[0, 0, 0]}>
+            <meshStandardMaterial color="#8b5cf6" />
+          </Sphere>
+          <Torus args={[0.8, 0.3, 16, 100]} position={[2, 0, 0]}>
+            <meshStandardMaterial color="#764ba2" />
+          </Torus>
+        </group>
       </Float>
       <Environment preset="city" />
     </>

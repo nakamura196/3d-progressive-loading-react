@@ -1,0 +1,11 @@
+/* Canvas Container */
+.canvas-container {
+  width: 100%;
+  height: calc(100vh - 80px);
+  position: relative;
+}
+
+/* For viewer page without footer */
+.app-layout .app-main .canvas-container {
+  height: calc(100vh - 80px);
+}
