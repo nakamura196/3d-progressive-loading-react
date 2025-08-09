@@ -1,31 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Float, Box, Sphere, Torus, Environment } from '@react-three/drei';
-import './Home.css';
+'use client';
 
-function Hero3D() {
-  return (
-    <>
-      <ambientLight intensity={0.5} />
-      <pointLight position={[10, 10, 10]} />
-      <Float speed={2} rotationIntensity={1} floatIntensity={2}>
-        <group>
-          <Box args={[1, 1, 1]} position={[-2, 0, 0]}>
-            <meshStandardMaterial color="#6366f1" />
-          </Box>
-          <Sphere args={[0.7]} position={[0, 0, 0]}>
-            <meshStandardMaterial color="#8b5cf6" />
-          </Sphere>
-          <Torus args={[0.8, 0.3, 16, 100]} position={[2, 0, 0]}>
-            <meshStandardMaterial color="#764ba2" />
-          </Torus>
-        </group>
-      </Float>
-      <Environment preset="city" />
-    </>
-  );
-}
+import React from 'react';
+import Link from 'next/link';
+import { Hero3DWrapper } from '../components/Hero3DWrapper';
+import './Home.css';
 
 export function Home() {
   const features = [
@@ -63,10 +41,7 @@ export function Home() {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-3d">
-          <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-            <Hero3D />
-            <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1} />
-          </Canvas>
+          <Hero3DWrapper />
         </div>
         
         <div className="hero-content">
@@ -78,15 +53,15 @@ export function Home() {
           </p>
           
           <div className="hero-actions">
-            <Link to="/viewer" className="btn-hero primary">
+            <Link href="/viewer" className="btn-hero primary">
               <span>🎮</span>
               Launch 3D Viewer
             </Link>
-            <Link to="/list" className="btn-hero secondary">
+            <Link href="/list" className="btn-hero secondary">
               <span>📋</span>
               Browse Collection
             </Link>
-            <Link to="/map" className="btn-hero tertiary">
+            <Link href="/map" className="btn-hero tertiary">
               <span>🗺️</span>
               Explore Map
             </Link>
@@ -133,7 +108,7 @@ export function Home() {
               <div className="model-preview-image sponza"></div>
               <h3>Sponza Atrium</h3>
               <p>Classic architectural model with 5 LOD levels</p>
-              <Link to="/viewer?manifest=/data/manifests/sponza_iiif.json" className="btn-preview">
+              <Link href="/viewer?manifest=/data/manifests/sponza_iiif.json" className="btn-preview">
                 View Model
               </Link>
             </div>
@@ -142,7 +117,7 @@ export function Home() {
               <div className="model-preview-image scan1"></div>
               <h3>Scaniverse Scan 1</h3>
               <p>3D scan created with Scaniverse app</p>
-              <Link to="/viewer?manifest=/data/manifests/scaniverse_iiif.json" className="btn-preview">
+              <Link href="/viewer?manifest=/data/manifests/scaniverse_iiif.json" className="btn-preview">
                 View Model
               </Link>
             </div>
@@ -151,7 +126,7 @@ export function Home() {
               <div className="model-preview-image scan2"></div>
               <h3>Scaniverse Scan 2</h3>
               <p>Second 3D scan with geographic location</p>
-              <Link to="/viewer?manifest=/data/manifests/scaniverse2_iiif.json" className="btn-preview">
+              <Link href="/viewer?manifest=/data/manifests/scaniverse2_iiif.json" className="btn-preview">
                 View Model
               </Link>
             </div>

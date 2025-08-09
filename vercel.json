@@ -1,10 +1,4 @@
 {
-  "rewrites": [
-    {
-      "source": "/((?!api|_next|static|data|thumbnails|favicon.ico).*)",
-      "destination": "/index.html"
-    }
-  ],
   "headers": [
     {
       "source": "/data/(.*)",
@@ -49,6 +43,5 @@
         }
       ]
     }
-  ],
-  "trailingSlash": false
+  ]
 }

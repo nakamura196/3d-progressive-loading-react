@@ -1,33 +1,36 @@
+'use client';
+
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import './Layout.css';
 
 export function Header() {
-  const location = useLocation();
+  const pathname = usePathname();
   
   const isActive = (path) => {
-    return location.pathname === path ? 'active' : '';
+    return pathname === path ? 'active' : '';
   };
   
   return (
     <header className="app-header">
       <div className="header-container">
-        <Link to="/" className="logo">
+        <Link href="/" className="logo">
           <span className="logo-icon">🎭</span>
           <span className="logo-text">IIIF 3D</span>
         </Link>
         
         <nav className="nav-menu">
-          <Link to="/" className={`nav-link ${isActive('/')}`}>
+          <Link href="/" className={`nav-link ${isActive('/')}`}>
             Home
           </Link>
-          <Link to="/viewer" className={`nav-link ${isActive('/viewer')}`}>
+          <Link href="/viewer" className={`nav-link ${isActive('/viewer')}`}>
             3D Viewer
           </Link>
-          <Link to="/list" className={`nav-link ${isActive('/list')}`}>
+          <Link href="/list" className={`nav-link ${isActive('/list')}`}>
             Collection
           </Link>
-          <Link to="/map" className={`nav-link ${isActive('/map')}`}>
+          <Link href="/map" className={`nav-link ${isActive('/map')}`}>
             Map
           </Link>
         </nav>
@@ -71,9 +74,9 @@ export function Footer() {
         <div className="footer-section">
           <h4>Quick Links</h4>
           <div className="footer-links">
-            <Link to="/viewer">3D Viewer</Link>
-            <Link to="/list">Collection</Link>
-            <Link to="/map">Map View</Link>
+            <Link href="/viewer">3D Viewer</Link>
+            <Link href="/list">Collection</Link>
+            <Link href="/map">Map View</Link>
             <a href="/data/manifests/collection.json" target="_blank">API</a>
           </div>
         </div>

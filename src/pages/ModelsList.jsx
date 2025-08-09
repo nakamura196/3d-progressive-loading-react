@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useCollection } from '../hooks/useCollection';
 import './ModelsList.css';
 
@@ -51,7 +53,7 @@ function ModelCard({ item }) {
         
         <div className="model-actions">
           <Link 
-            to={`/viewer?manifest=${item.id}`} 
+            href={`/viewer?manifest=${item.id}`} 
             className="btn btn-primary"
           >
             View Model
@@ -123,10 +125,10 @@ export function ModelsList() {
           )}
           
           <div className="header-actions">
-            <Link to="/map" className="btn btn-map">
+            <Link href="/map" className="btn btn-map">
               🗺️ Map View
             </Link>
-            <Link to="/" className="btn btn-viewer">
+            <Link href="/" className="btn btn-viewer">
               🎮 3D Viewer
             </Link>
           </div>

@@ -1,4 +1,7 @@
+'use client';
+
 import React, { Suspense, useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Environment, Grid, Center } from '@react-three/drei';
 import { Leva, useControls } from 'leva';
@@ -28,9 +31,9 @@ export function Viewer() {
   });
 
   // Load manifest if specified, otherwise use default
-  const params = new URLSearchParams(window.location.search);
-  const manifestUrl = params.get('manifest') || '/data/manifests/sponza_iiif.json';
-  const modelId = params.get('model');
+  const searchParams = useSearchParams();
+  const manifestUrl = searchParams.get('manifest') || '/data/manifests/sponza_iiif.json';
+  const modelId = searchParams.get('model');
   
   const { manifest, loading: manifestLoading, error: manifestError, getModelConfig, getSettings } = useManifest(manifestUrl);
 

@@ -1,5 +1,8 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import Map, { Marker, Popup, NavigationControl, ScaleControl } from 'react-map-gl/maplibre';
 import { useCollection } from '../hooks/useCollection';
 import 'maplibre-gl/dist/maplibre-gl.css';
@@ -7,7 +10,7 @@ import './MapView.css';
 
 export function MapView() {
   const { collection, loading, error } = useCollection();
-  const navigate = useNavigate();
+  const router = useRouter();
   const [viewState, setViewState] = useState({
     longitude: 139.7,
     latitude: 35.68,
@@ -81,10 +84,10 @@ export function MapView() {
         <div className="header-content">
           <h1>3D Models Map</h1>
           <div className="header-actions">
-            <Link to="/list" className="btn btn-list">
+            <Link href="/list" className="btn btn-list">
               📋 List View
             </Link>
-            <Link to="/" className="btn btn-viewer">
+            <Link href="/" className="btn btn-viewer">
               🎮 3D Viewer
             </Link>
           </div>
@@ -108,7 +111,7 @@ export function MapView() {
             
             return (
               <Marker
-                key={feature.id || index}
+                key={`marker-${index}-${longitude}-${latitude}`}
                 longitude={longitude}
                 latitude={latitude}
                 anchor="bottom"
@@ -166,7 +169,7 @@ export function MapView() {
                       <button
                         className="btn btn-primary"
                         onClick={() => {
-                          navigate(`/viewer?manifest=${selectedModel.modelInfo.id}`);
+                          router.push(`/viewer?manifest=${selectedModel.modelInfo.id}`);
                         }}
                       >
                         View 3D Model
