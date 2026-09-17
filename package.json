@@ -18,7 +18,7 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-map-gl": "^8.0.4",
-    "react-router-dom": "^7.8.0",
+    "react-router-dom": "^7.18.4",
     "three": "^0.179.1",
     "zustand": "^5.0.7"
   },
