@@ -105,7 +105,7 @@ async function generateThumbnail(modelPath, outputPath, modelName) {
     console.log(`Generating thumbnail for ${modelName}...`);
     
     const browser = await puppeteer.launch({
-        headless: 'new',
+        headless: true,
         args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-web-security', '--allow-file-access-from-files']
     });
     
@@ -136,7 +136,7 @@ async function generateThumbnail(modelPath, outputPath, modelName) {
         }
         
         // Wait a bit more for final render
-        await page.waitForTimeout(1000);
+        await new Promise((r) => setTimeout(r, 1000));
         
         // Take screenshot
         await page.screenshot({

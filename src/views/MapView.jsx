@@ -4,9 +4,13 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import Map, { Marker, Popup, NavigationControl, ScaleControl } from 'react-map-gl/maplibre';
+import { setWorkerUrl } from 'maplibre-gl';
 import { useCollection } from '../hooks/useCollection';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import './MapView.css';
+
+// MapLibre 6 の worker は public/ に写したものを使う（scripts/copy-maplibre-worker.mjs）
+setWorkerUrl('/maplibre-gl-worker.mjs');
 
 export function MapView() {
   const { collection, loading, error } = useCollection();
