@@ -29,3 +29,5 @@ public/data/models/scaniverse/scaniverse_original.glb
 # Scaniverse model 2 large files
 public/data/models/scaniverse2/scaniverse2_lod0.glb
 public/data/models/scaniverse2_original.glb
+# MapLibre の worker（npm run build / dev の前に node_modules から写す）
+public/maplibre-gl-worker.mjs
